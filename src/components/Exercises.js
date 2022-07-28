@@ -9,7 +9,7 @@ import Loader from './Loader';
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [exercisesPerPage] = useState(6);
-
+  
   const fetchExercisesData = async () => {
     let exercisesData = [];
 
@@ -21,9 +21,11 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
     setExercises(exercisesData);
   };
-
   useEffect(() => {
+    
     fetchExercisesData();
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bodyPart]);
 
 

@@ -14,6 +14,7 @@ const ExerciseDetails = () => {
     const [equipmentExercises, setEquipmentExercises] = useState([]);
     const { id } = useParams();
 
+   
     const fetchExercisesData = async () => {
         const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
         const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com';
@@ -30,12 +31,12 @@ const ExerciseDetails = () => {
         const equimentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailsData.equipment}`, exerciseOptions);
         setEquipmentExercises(equimentExercisesData);
     };
-    
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-
-
+        
         fetchExercisesData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
 
     if (!exerciseDetails) return <div>No Data</div>;
